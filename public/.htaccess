@@ -1,0 +1,15 @@
+#checks for a mod_rewrite module and makes sure it is enabled
+<IfModule mod_rewrite.c>
+    # Disable Multiviews
+    Options -Multiviews
+    # Turn on RewriteEngine
+    RewriteEngine On
+    # Set the root url
+    # SET REWRITE BASE TO YOUR FOLDER/PUBLIC
+    RewriteBase /mvc/public
+    # Check if files exist in the public folder
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    # If files do not exist direct them to index.php?url=$1
+    RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+</IfModule>

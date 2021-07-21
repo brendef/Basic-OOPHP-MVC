@@ -1,0 +1,2 @@
+# prevents access to the app folder (prevents access to the current folder it is in)
+Options +Indexes
